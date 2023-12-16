@@ -1,0 +1,30 @@
+Vagrant.configure("2") do |config|
+
+  config.vm.define "Lager01" do |lg_config|
+    lg_config.vm.box = "generic/debian12"
+    lg_config.vm.provider "libvirt" do |lv|
+      lv.memory = 2048
+    end
+    lg_config.vm.network "private_network", type: "static", ip: "192.168.56.21"
+    lg_config.vm.hostname = "Lager01"
+  end
+
+  config.vm.define "PaleAle01" do |pa_config|  # Alterei o nome da variável para pa_config
+    pa_config.vm.box = "generic/rocky9"
+    pa_config.vm.provider "libvirt" do |lv|
+      lv.memory = 2048
+    end
+    pa_config.vm.network "private_network", type: "static", ip: "192.168.56.22"
+    pa_config.vm.hostname = "PaleAle01"
+  end
+
+  config.vm.define "Witbier01" do |wb_config|
+    wb_config.vm.box = "generic/opensuse15"
+    wb_config.vm.provider "libvirt" do |lv|
+      lv.memory = 4096
+    end
+    wb_config.vm.network "private_network", type: "static", ip: "192.168.56.23"
+    wb_config.vm.hostname = "Witbier01"
+  end
+
+end
