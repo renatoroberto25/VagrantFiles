@@ -1,0 +1,40 @@
+Vagrant.configure("2") do |config|
+
+  config.vm.define "lagger01" do |lagger01|
+    lagger01.vm.box = "generic/ubuntu2210"
+    lagger01.vm.provider "virtualbox" do |vb|
+      vb.memory = "1536"
+    end
+    lagger01.vm.network "private_network", ip: "192.168.56.21"
+    lagger01.vm.hostname = "lagger01"
+  end
+#  config.vm.define "debian01" do |debian01|
+#    debian01.vm.box = "generic/debian12"
+#    debian01.vm.provider "virtualbox" do |vb|
+#      vb.memory = "1536"
+#    end
+#    debian01.vm.network "private_network", ip: "192.168.56.21"
+#    debian01.vm.hostname = "debian01"
+#  end
+
+
+  config.vm.define "paleale01" do |paleale01|
+    paleale01.vm.box = "generic/centos7"
+    paleale01.vm.provider "virtualbox" do |vb|
+      vb.memory = "1228"
+    end
+    paleale01.vm.network "private_network", ip: "192.168.56.22"
+    paleale01.vm.hostname = "paleale01"
+  end
+
+
+  config.vm.define "pilsen01" do |pilsen01|
+    pilsen01.vm.box = "generic/opensuse15"
+    pilsen01.vm.provider "virtualbox" do |vb|
+      vb.memory = "1228"
+    end
+    pilsen01.vm.network "private_network", ip: "192.168.56.23"
+    pilsen01.vm.hostname = "pilsen01"
+  end
+
+end
